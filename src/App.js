@@ -11,9 +11,18 @@ export class App extends Component {
     }
   }
   updateBoard = (index) =>{
-    console.log("function is working!");
-    this.setState({turn: this.state.turn + 1});
-    this.playerIcon(index)
+    //check if square contains diamond or hand
+    if(this.state.board[index] === ""){
+
+      console.log("function is working!");
+      this.setState({turn: this.state.turn + 1});
+      this.playerIcon(index)
+
+    }else{
+      //do nothing
+      console.log("please don't overwrite this square")
+    }
+
   }
   playerIcon = (index) => {
     if (this.state.turn  % 2 === 0){
