@@ -1,22 +1,32 @@
+import './App.css';
 import React, { Component } from 'react'
-import Square from './components/Square'
-import './App.css'
+import Square from './components/Square';
 
-class App extends Component{
+export class App extends Component {
   constructor(props){
     super(props)
-    this.state = {
-      squares: [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    this.state={
+      board: ["","","","","","","","",""]
     }
   }
+  updateBoard = () =>{
+    console.log("function is working!");
 
-  render(){
-    return(
-      <>
+  }
+  
+  render() {
+    return (
+      <div>
         <h1>Tic Tac Toe</h1>
-        <Square />
-      </>
+        <div id="board">
+          {this.state.board.map((value,index) =>{
+            return <Square updateBoard = {this.updateBoard} squareValue = {value} squareIndex={index}/>
+          })}
+        </div>
+      </div>
     )
   }
 }
+
 export default App
+
