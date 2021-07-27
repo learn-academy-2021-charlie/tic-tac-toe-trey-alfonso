@@ -48,11 +48,18 @@ export class App extends Component {
         && this.state.board[thirdWinning] ===  "🙌")){
           alert("Hands Wins")
           //setTimeout(this.reset,3000)
-        }else{
+        }else if(this.state.turn === 10){
+          alert("It's a Tie!")
+          break
+        }
+          else{
           //console.log("next turn")
         }
     }
   }
+  //reset game state
+
+
   // this.state.board[index] shows individual emoticons USELESS
   playerIcon = (index) => {
     if (this.state.turn  % 2 !== 0){
